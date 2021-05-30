@@ -17,23 +17,24 @@
     background-size: cover;
     position: relative ;
 }
-/* .welcome
+.welcome
 {     
 		position: relative;
 		overflow: visible;
-		font-size: 150px;
+		font-size: 100px;
         line-height: 0.8;
 		text-align: right;
 		font-family: Montserrat;
 		font-style: normal;
 		font-weight: bolder;
 		color: rgba(7,45,35,1);
-        padding-right: 150px;
-        padding-top:400px
+        padding-right: 50px;
+        padding-top:50px
 }
 .Group_btn 
 {
-    font-size: 50px;
+    font-size: 15px;
+    padding-left: 10px;
 
   } 
   
@@ -101,4 +102,3 @@
     -webkit-transform: translate3d(0, 0, -1em);
             transform: translate3d(0, 0, -1em);
   }
-  # sourceMappingURL=button.css.map */
