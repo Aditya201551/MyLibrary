@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+
+}
+:root {
+    --bg_green: rgba(7,45,35,1);
+  }
+  
+.login
+{
+    background-color:  rgba(7,45,35,1);
+    min-height: 100vh;
+    width: 100%;
+     background-size: cover;
+    position: relative ;
+}
+.upperblob
+{
+    background-image: url(/assests/mm/uperblob.svg);
+}
