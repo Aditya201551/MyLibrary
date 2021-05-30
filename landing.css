@@ -11,17 +11,17 @@
   } 
 .landing
 {
-    background-image: url(/assests/mm/landing.png);
-    min-height: 100vh;
+    background-image: url(/assests/landing.png);
     width: 100%;
-     background-size: cover;
+    min-height: 100vh;
+    background-size: cover;
     position: relative ;
 }
-.welcome
+/* .welcome
 {     
 		position: relative;
 		overflow: visible;
-		font-size: 400px;
+		font-size: 150px;
         line-height: 0.8;
 		text-align: right;
 		font-family: Montserrat;
@@ -101,4 +101,4 @@
     -webkit-transform: translate3d(0, 0, -1em);
             transform: translate3d(0, 0, -1em);
   }
-  /*# sourceMappingURL=button.css.map */
+  # sourceMappingURL=button.css.map */
