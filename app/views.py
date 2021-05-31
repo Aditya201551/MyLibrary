@@ -7,7 +7,7 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'index.html')
 
-@login_required
+@login_required(login_url='login')
 def dashboard(request):
     return render(request, 'dashboard.html')
 
@@ -26,5 +26,8 @@ def user_login(request):
         else:
             return HttpResponse("INVALID details")
     else:
-        return render(request, 'login.html')
+        if request.user.is_authenticated:
+            return redirect('db')
+        else:
+            return render(request, 'login.html')
 
