@@ -1,17 +1,36 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Mono:wght@600&family=Signika+Negative&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
 </head>
+
 <body>
-    <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Username"> <br>
-        <input type="password" name="password" placeholder="Password"> <br>
-        <input type="submit" value="Login">
-    </form>
+    <section class="login">
+        <div class="login_text">
+            login
+        </div>
+        <div class="login_details">
+            <form id="login_frm" action='{% url 'login' %}' method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" id="Uname" placeholder="username">
+                <input type="Password" name="password" id="Pass" placeholder="password">
+                <div class="Group_btn">
+                    <button class="learn-more">Log In</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
 </body>
+
 </html>

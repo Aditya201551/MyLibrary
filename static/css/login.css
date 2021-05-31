@@ -5,45 +5,61 @@
 
 }
 :root {
-    --backgroundColor: rgba(7,45,35,1);
-    --colorShadeA: rgba(248,155,2,1);
-
-  } 
-.landing
+    --bg_green: rgba(7,45,35,1);
+  }
+  
+.login
 {
-    background-image: url(../images/landing.png);
-    width: 100%;
+    background-image: url(../images/login.png);
     min-height: 100vh;
+    width: 100%;
     background-size: cover;
     position: relative ;
 }
-.welcome
+.login_text
 {     
 		position: relative;
 		overflow: visible;
 		font-size: 100px;
-        line-height: 0.8;
-		text-align: right;
-		font-family: Montserrat;
+		text-align: left;
 		font-style: normal;
-		font-weight: bolder;
-		color: rgba(7,45,35,1);
-        padding-right: 50px;
+		font-weight: 500;
+		color: #072D23;
+        padding-left: 200px;
         padding-top:50px
 }
-.Group_btn 
+.login_details
 {
-  font-size: 15px;
-  padding-left: 1em;
-  position: absolute;
-  top:85%;
-  } 
-  
-  button {
+    position: relative;
+    text-align: center;
+    margin-top: 10%;
+}
+input
+{
+        border-radius: 15px;
+        border-width: 0px;
+        outline:none;
+        width: 400px;
+        height: 40px;
+        text-align: center;
+        display: block;
+        margin:auto;
+        margin-bottom:1em;
+} 
+input::-webkit-input-placeholder
+{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+button {
     position: relative;
     display: inline-block;
     cursor: pointer;
+    width: 400px;
+    height: 35px;
     outline: none;
+    text-align: center;
     border: 0;
     vertical-align: middle;
     text-decoration: none;
@@ -52,11 +68,12 @@
   }
   
   button.learn-more {
-    font-weight: 600;
-    color: #F9FF3A;
+    font-weight: 500;
+    text-align: center;
+    color: #072D23;
     text-transform: uppercase;
-    padding: 1.25em 2em;
-    background: #072D23;
+    padding-left: 1.5rem;
+    background: #F9FF3A;
     border-radius: 60px;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
@@ -86,20 +103,20 @@
   }
   
   button.learn-more:hover {
-    background: #072D23;
+    background: #F9FF3A;
     -webkit-transform: translate(0, 0.25em);
             transform: translate(0, 0.25em);
   }
   
   button.learn-more:active {
-    background: #072D23;
+    background: #F9FF3A;
     -webkit-transform: translate(0em, 0.75em);
             transform: translate(0em, 0.75em);
   }
   
   button.learn-more:active::before {
-    -webkit-box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
-            box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+    -webkit-box-shadow: 0 0 0 2px #F89B02, 0 0 #ffe3e2;
+            box-shadow: 0 0 0 2px #F89B02, 0 0 #ffe3e2;
     -webkit-transform: translate3d(0, 0, -1em);
             transform: translate3d(0, 0, -1em);
-  }
+}
