@@ -24,7 +24,7 @@
 		font-size: 100px;
         line-height: 0.8;
 		text-align: right;
-		font-family: Montserrat;
+		/* font-family: Montserrat; */
 		font-style: normal;
 		font-weight: bolder;
 		color: rgba(7,45,35,1);
@@ -103,3 +103,6 @@
     -webkit-transform: translate3d(0, 0, -1em);
             transform: translate3d(0, 0, -1em);
   }
+.unselect{
+  user-select: none;
+}

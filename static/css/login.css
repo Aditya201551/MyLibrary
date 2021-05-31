@@ -41,10 +41,9 @@ input
         outline:none;
         width: 400px;
         height: 40px;
-        text-align: center;
         display: block;
         margin:auto;
-        margin-bottom:1em;
+        margin-bottom:1.5em;
 } 
 input::-webkit-input-placeholder
 {
@@ -119,4 +118,8 @@ button {
             box-shadow: 0 0 0 2px #F89B02, 0 0 #ffe3e2;
     -webkit-transform: translate3d(0, 0, -1em);
             transform: translate3d(0, 0, -1em);
+}
+
+.unselect{
+        user-select: none;
 }
