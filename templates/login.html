@@ -28,8 +28,22 @@
         {% if error %}
             <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
             <script>
-                var notyf = new Notyf();
-                notyf.error('Invalid login credential');
+                const notyf = new Notyf({
+                        duration: 5000,
+                        position: {
+                            x: 'center',
+                            y: 'top',
+                        },
+                        types: [
+                            {
+                                type: 'error',
+                                background: 'indianred',
+                                duration: 3000,
+                                dismissible: true
+                            }
+                        ]
+                    });
+                    notyf.error('Invalid login credential');
             </script>
         {% endif %}
         <div class="login_details">
