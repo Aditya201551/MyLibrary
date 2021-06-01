@@ -1,3 +1,4 @@
 {
-    "editor.linkedEditing": true
+    "editor.linkedEditing": true,
+    "python.pythonPath": "env\\Scripts\\python.exe"
 }

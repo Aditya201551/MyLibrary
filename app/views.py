@@ -4,14 +4,19 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
-
+from django.urls import reverse
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 @login_required(login_url='login')
-def dashboard(request):
-    return render(request, 'dashboard.html')
+def dashboard(request, message=None):
+        if message==None:
+            print(message+"messsssssssssssssssssssssssssssssssssssssssssssssssss")
+            return render(request, 'dashboard.html')
+        else:
+            print(message+"messsssssssssssssssssssssssssssssssssssssssssssssssssssssssss")
+            return render(request, 'dashboard.html',{'message':f'Hello {message["args"]} you have been registred successfully'})
 
 def user_login(request):
     if request.method == 'POST':
@@ -54,7 +59,8 @@ def user_register(request):
                 print("USER CREATED")
                 user = authenticate(username=username, password=password1)
                 login(request, user)
-                return redirect('db')
+                print("looooooooooooooooooooooooooooooooog")
+                return redirect(reverse('db', kwargs={"username":username}))
         else:
             print("INCORRECT PASSWORD")
             return render(request, 'register.html',  {'error': 'Password not matching'})
