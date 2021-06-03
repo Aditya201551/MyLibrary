@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load socialaccount %}
 <html lang="en">
 
 <head>
@@ -49,13 +50,13 @@
                     <input type="submit" name="submit" value="Login" class="btn solid" />
                     <p class="social-text">Or Sign in with social platforms</p>
                     <div class="social-media">
-                        <a href="#" class="social-icon">
+                        <a href="{% provider_login_url 'facebook' %}" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
+                        <a href="{% provider_login_url 'github' %}" class="social-icon">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="{% provider_login_url 'google' %}" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">
@@ -85,13 +86,13 @@
                     <input type="submit" name="submit" class="btn" value="Sign up" />
                     <p class="social-text">Or Sign up with social platforms</p>
                     <div class="social-media">
-                        <a href="#" class="social-icon">
+                        <a href="{% provider_login_url 'facebook' %}" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
+                        <a href="{% provider_login_url 'github' %}" class="social-icon">
+                            <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="{% provider_login_url 'google' %}" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">
