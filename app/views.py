@@ -54,6 +54,11 @@ def index(request):
             return render(request,'index.html')
 
 
+@login_required(login_url='index')
+def user_logout(request):
+    logout(request)
+    return redirect('index')
+
 
 @login_required(login_url='index')
 def dashboard(request):

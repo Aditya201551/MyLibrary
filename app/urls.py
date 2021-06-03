@@ -3,4 +3,5 @@ from app import views
 urlpatterns = [
     path('',views.index, name='index'),
     path('dashboard/',views.dashboard, name='db'),
+    path('logout/', views.user_logout,name='logout')
 ]
