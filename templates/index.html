@@ -58,8 +58,8 @@
         <section class="home" id="home">
             <class class="home__container bd-container bd-grid">
                 <div class="home__data">
-                    <h1 class="home__title">My Library</h1>
-                    <h2 class="home__subtitle">Library in your pocket.</h2>
+                    <h1 class="home__title darkmode">My Library</h1>
+                    <h2 class="home__subtitle darkmode">Library in your pocket.</h2>
                     {% if user.is_authenticated %}
                     <a href="#dashboard" class="button">Get Started</a>
                     {% else %}
@@ -77,7 +77,7 @@
 <section class="dashboard section bd-container" id="dashboard">
     <div class="dashboard__container  bd-grid">
         <div class="dashboard__data">
-        <h2 class="dashboard-subtitle">Welcome to Dashboard</h2>
+        <h2 class="dashboard-subtitle darkmode">Welcome to Dashboard</h2>
         </div>
         <div class="container">
             <div class="card">
@@ -180,8 +180,8 @@
         <section class="about section bd-container" id="about">
             <div class="about__container bd-grid">
                 <div class="about__data">
-                    <span class="section-subtitle">About Us</span>
-                    <h2 class="section-title">Learning made easy.</h2>
+                    <span class="section-subtitle darkmode">About Us</span>
+                    <h2 class="section-title darkmode">Learning made easy.</h2>
                     <p class="about__desciption">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut expedita recusandae eos corporis aliquid officia, quis cum animi optio, laboriosam atque nostrum aspernatur reprehenderit dolorum porro culpa similique molestias!</p>
                 </div>
                 <div class="about__img">
@@ -193,7 +193,7 @@
          <section class="contact section bd-container" id="contact">
             <div class="contact__container bd-grid">
                 <div class="contact__data">
-                    <h2 class="section-title contact__initial">Feedback</h2>
+                    <h2 class="section-title contact__initial darkmode">Feedback</h2>
                     <p class="contact__description">We would be highly elated to hear your valuable feedback.. </p>
                 </div>
 
@@ -210,11 +210,11 @@
         <footer class="footer section bd-container">
             <div class="footer__container bd-grid">
                 <div class="footer__content">
-                    <a href="#" class="footer__logo">MyLibrary</a>
+                    <a href="#" class="footer__logo"><span class="darkmode">MyLibrary</span></a>
                 </div>
 
                 <div class="footer__content">
-                    <h3 class="footer__title">Dashboard</h3>
+                    <h3 class="footer__title darkmode">Dashboard</h3>
                     <ul>
                         <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
                         <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
@@ -226,15 +226,15 @@
                 </div>
 
                 <div class="footer__content">
-                    <h3 class="footer__title">Information</h3>
+                    <h3 class="footer__title darkmode darkmode">Information</h3>
                     <ul>
                         <li><a href="{% url 'contact' %}" class="footer__link">Contact us</a></li>
-                        <li><a href="#" class="footer__link">GitHub Profile</a></li>
-                        <a href="https://github.com/Aditya201551" target="_blank" class="footer__social"><i class='bx bxl-github'></i></a>
-                        <a href="https://github.com/ManpreetKaur14" target="_blank" class="footer__social"><i class='bx bxl-github'></i></a>
-                        <li><a href="" class="footer__link">LinkedIn Profile</a></li>
-                        <a href="https://www.linkedin.com/in/aditya-raj-390247193/" target="_blank" class="footer__social"><i class='bx bxl-linkedin'></i></a>
-                        <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" target="_blank" class="footer__social"><i class='bx bxl-linkedin'></i></a>
+                        <li><a class="footer__link">GitHub Profile</a></li>
+                        <a href="https://github.com/Aditya201551" target="_blank" class="footer__social"><i class='bx bxl-github darkmode'></i></a>
+                        <a href="https://github.com/ManpreetKaur14" target="_blank" class="footer__social"><i class='bx bxl-github darkmode'></i></a>
+                        <li><a class="footer__link">LinkedIn Profile</a></li>
+                        <a href="https://www.linkedin.com/in/aditya-raj-390247193/" target="_blank" class="footer__social"><i class='bx bxl-linkedin darkmode'></i></a>
+                        <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" target="_blank" class="footer__social"><i class='bx bxl-linkedin darkmode'></i></a>
 
                         
                     </ul>
@@ -251,7 +251,7 @@
     <!------------------------------ JS------------------------------>
 
     <script src="{% static "js/index.js" %}"></script>
-
+    <script src="{% static "js/darkmode.js" %}"></script>
     </main>
 </body>
 </html>

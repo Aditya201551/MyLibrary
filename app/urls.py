@@ -5,6 +5,7 @@ urlpatterns = [
     path('account/',views.form,name='form'), #login
     path('logout/', views.user_logout,name='logout'), #logout
     path('contact/',views.contact, name='contact'),
+    path('feedback/', views.feedback, name='feedback'),
     #cards
     path('books/', views.books, name='books'),
     path('syllabus/',views.syllabus, name='syllabus'),

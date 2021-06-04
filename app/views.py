@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.urls import reverse
+from app.models import *
 # Create your views here.
 
 def index(request):
@@ -83,3 +84,16 @@ def resource(request):
 login_required('form')
 def contact(request):
     return HttpResponse("<h1form> Contact us</h1>")
+
+@login_required(login_url='form')
+def feedback(request):
+    print(request.user.username)
+    if request.method == 'POST':
+        feedback=request.POST.get('feedbackarea')
+        model=Feedback()
+        model.user=request.user
+        model.feedback=feedback
+        model.save()
+        return render(request, 'feedback.html')
+    else:
+        return render(request, 'feedback.html')
