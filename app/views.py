@@ -60,3 +60,26 @@ def form(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
+
+@login_required(login_url='form')
+def books(request):
+    return HttpResponse("<h1>Books</h1>")
+
+@login_required(login_url='form')
+def syllabus(request):
+    return HttpResponse('<h1>Syllabus</h1>')
+
+@login_required(login_url='form')
+def previousYear(request):
+    return HttpResponse('<h1>Previous Year</h1>')
+
+@login_required(login_url='form')
+def shareAssignment(request):
+    return HttpResponse('<h1> Share Assignment </h1>')
+
+def resource(request):
+    return HttpResponse("<h1> Resources </h1>")
+
+login_required('form')
+def contact(request):
+    return HttpResponse("<h1form> Contact us</h1>")

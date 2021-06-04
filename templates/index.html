@@ -1,42 +1,257 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-    <title>Document</title>
+
+    <!------------------------------ Box Icon ------------------------------>
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!------------------------------ CSS------------------------------>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon" href="{% static "images/books.png" %}" type="image/png">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+
+    <title>Welcome</title>
 </head>
 <body>
-    {% if message %}
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script>
-        const notyf = new Notyf({
-            duration: 5000,
-            position: {
-                x: 'center',
-                y: 'top',
-            },
-            types: [
-                {
-                    type: 'error',
-                    background: 'indianred',
-                    duration: 3000,
-                    dismissible: true
-                }
-            ]
-        });
-        notyf.error('{{message}}');
-    </script>
-    {% endif %}
+    <!------------------------------ SCROLL TOP------------------------------>
+ <a href="#" class="scrolltop" id="scroll-top">
+    <i class='bx bx-chevron-up scrolltop__icon' ></i>
+ </a>
 
-    <h1>Dashboard</h1> <br> <hr>
-    {% if user.is_authenticated %}
-    <h3>Welcome {{ user.username }}</h3> <br>
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <a href="{% url 'form' %}">Login/Register</a>
-    {% endif %}
-    
+
+
+    <!------------------------------ HEADER------------------------------>
+    <header class="l-header" id="header">
+    <nav class="nav bd-container">
+        <a href="#" class="nav-logo">MyLibrary</a>
+        <class class="nav-menu" id="nav_menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav_link">Home</a></li>
+                <li class="nav-item"><a href="#dashboard" class="nav_link">Dashboard </a></li>
+                <li class="nav-item"><a href="#about" class="nav_link">About</a></li>
+                <li class="nav-item"><a href="#contact" class="nav_link">Contact</a></li>
+                <li class="nav-item"><i class='bx bx-moon change-theme nav_link' id="theme-button"></i></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'logout' %}"><i class='bx bx-log-out-circle nav_link'></i></a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'form' %}"><i class='bx bx-log-in-circle nav_link'></i></a></li>
+                {% endif %}
+            </ul>
+        </class>
+        </div>
+        <div class="nav_toggle" id="nav_toggle">
+            <i class='bx bx-menu'></i> 
+        </div>
+    </nav>
+
+    </header>
+    <main class="l-main">
+
+        <!-- ===================home=============== -->
+
+        <section class="home" id="home">
+            <class class="home__container bd-container bd-grid">
+                <div class="home__data">
+                    <h1 class="home__title">My Library</h1>
+                    <h2 class="home__subtitle">Library in your pocket.</h2>
+                    {% if user.is_authenticated %}
+                    <a href="#dashboard" class="button">Get Started</a>
+                    {% else %}
+                    <a href="{% url 'form' %}" class="button">Get Started</a>
+                    {% endif %}
+                </div>
+                    <img src="{% static "images/janko-ferlic-sfL_QOnmy00-unsplash.jpg" %}" alt="no img" class="home__img">
+                 </class>
+                </div>
+        </section>
+
+
+        <!-- ===================Dashboard=============== -->
+
+<section class="dashboard section bd-container" id="dashboard">
+    <div class="dashboard__container  bd-grid">
+        <div class="dashboard__data">
+        <h2 class="dashboard-subtitle">Welcome to Dashboard</h2>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="box">
+                    <div class="content">
+                        <div class="img-background">
+                            <div class="card-img">
+                                <img src="{% static "images/book (2).png" %}" alt="">
+                            </div>
+                        </div>
+                        <h3>
+                            Books
+                        </h3>
+                        <a href="{% url 'books' %}">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <div class="content">
+                        <div class="img-background">
+                            <div class="card-img">
+                                <img src="{% static "images/syllabus.png" %}" alt="">
+                            </div>
+                        </div>
+                        <h3>
+                            Syllabus
+                        </h3>
+                        <a href="{% url 'syllabus' %}">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <div class="content">
+                        <div class="img-background">
+                            <div class="card-img">
+                                <img src="{% static "images/previous yr.png" %}" alt="">
+                            </div>
+                        </div>
+                        <h3>
+                            Previous Year
+                        </h3>
+                        <a href="{% url 'previousYear' %}">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <div class="content">
+                        <div class="img-background">
+                            <div class="card-img">
+                                <img src="{% static "images/assignment.png" %}" alt="">
+                            </div>
+                        </div>
+                        <h3>
+                           Assignments
+                        </h3>
+                        <a href="{% url 'shareAssignment' %}">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <div class="content">
+                        <div class="img-background">
+                            <div class="card-img">
+                                <img src="{% static "images/job.png" %}" alt="">
+                            </div>
+                        </div>
+                        <h3>
+                            Resources
+                        </h3>
+                        <a href="{% url 'resource' %}">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <d class="content">
+                        <div class="img-background">
+                        <div class="makaut-card-img">
+                            <img src="{% static "images/makaut.png" %}" alt="">
+                        </div>
+                    </div>
+                        <h3>
+                            Makaut
+                        </h3>
+                        <a href="http://makautexam.net/" target="_blank">Get Started</a>
+                </div>
+            </div>
+        </div>
+          </div>
+        </section>
+
+
+
+        <!-- ===================about=============== -->
+
+        <section class="about section bd-container" id="about">
+            <div class="about__container bd-grid">
+                <div class="about__data">
+                    <span class="section-subtitle">About Us</span>
+                    <h2 class="section-title">Learning made easy.</h2>
+                    <p class="about__desciption">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut expedita recusandae eos corporis aliquid officia, quis cum animi optio, laboriosam atque nostrum aspernatur reprehenderit dolorum porro culpa similique molestias!</p>
+                </div>
+                <div class="about__img">
+              <img src="{% static "images/pexels-oziel-gómez-2846814.jpg" %}" alt="no image">
+            </div>
+            </div>
+
+         <!-- ===================contact us=============== -->
+         <section class="contact section bd-container" id="contact">
+            <div class="contact__container bd-grid">
+                <div class="contact__data">
+                    <h2 class="section-title contact__initial">Feedback</h2>
+                    <p class="contact__description">We would be highly elated to hear your valuable feedback.. </p>
+                </div>
+
+                <div class="contact__button">
+                    <a href="{% url 'contact' %}" class="button">Contact us now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+        <!------------------------------ FOOTER------------------------------>
+
+        <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">MyLibrary</a>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Dashboard</h3>
+                    <ul>
+                        <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
+                        <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
+                        <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
+                        <li><a href="{% url 'shareAssignment' %}" class="footer__link">Assignment</a></li>
+                        <li><a href="{% url 'resource' %}" class="footer__link">Resources</a></li>
+                        <li><a href="http://makautexam.net/" class="footer__link" target="_blank">Makaut</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Information</h3>
+                    <ul>
+                        <li><a href="{% url 'contact' %}" class="footer__link">Contact us</a></li>
+                        <li><a href="#" class="footer__link">GitHub Profile</a></li>
+                        <a href="https://github.com/Aditya201551" target="_blank" class="footer__social"><i class='bx bxl-github'></i></a>
+                        <a href="https://github.com/ManpreetKaur14" target="_blank" class="footer__social"><i class='bx bxl-github'></i></a>
+                        <li><a href="" class="footer__link">LinkedIn Profile</a></li>
+                        <a href="https://www.linkedin.com/in/aditya-raj-390247193/" target="_blank" class="footer__social"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" target="_blank" class="footer__social"><i class='bx bxl-linkedin'></i></a>
+
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </footer>
+
+        
+    <!------------------------------ Scroll Reveal------------------------------>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!------------------------------ JS------------------------------>
+
+    <script src="{% static "js/index.js" %}"></script>
+
+    </main>
 </body>
 </html>
