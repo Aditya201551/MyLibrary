@@ -4,7 +4,7 @@ urlpatterns = [
     path('',views.index, name='index'),
     path('account/',views.form,name='form'), #login
     path('logout/', views.user_logout,name='logout'), #logout
-    path('contact/',views.contact, name='contact'),
+    path('contact/',views.feedback, name='contact'),
     path('feedback/', views.feedback, name='feedback'),
     #cards
     path('books/', views.books, name='books'),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('resource/',views.resource,name='resource'),
     #dashboard
     path('books/<str:course>/<str:semester>/<str:subject>',views.returnBook, name='books'),
+    path('test/',views.test,name='test'),
 ]

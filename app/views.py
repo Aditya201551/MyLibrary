@@ -87,22 +87,41 @@ def contact(request):
 
 @login_required(login_url='form')
 def feedback(request):
-    print(request.user.username)
+    # print(request.user.username)
     if request.method == 'POST':
         feedback=request.POST.get('feedbackarea')
         model=Feedback()
         model.user=request.user
         model.feedback=feedback
         model.save()
-        return render(request, 'feedback.html')
+        return render(request, 'feedback.html',{
+            'message':'Thank you for your feedback!',
+        })
     else:
         return render(request, 'feedback.html')
 
 def returnBook(request, course, semester, subject):
-    model=BookModel.objects.filter(course=course, semester=semester)
+    model=Book.objects.filter(course=course, semester=semester)
     return render(request, 'books.html', {
         "model":model,
         'course':course,
         'semester':semester,
         'subject':subject,
     })
+
+def test(request):
+    if request.method=="POST":
+        course=request.POST.get('course')
+        semester=request.POST.get('semester')
+        subject=request.POST.get('subject')
+        model=Book.objects.filter(course=course, semester=semester, subject=subject).values()
+
+        return render(request,'test.html', {
+            'present':True,
+            'course': course,
+            'semester': semester,
+            'subject': subject,
+            'model':model
+        })
+    else:
+        return render(request, 'test.html')

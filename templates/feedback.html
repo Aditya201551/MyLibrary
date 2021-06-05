@@ -1,18 +1,173 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feedback</title>
+    <!------------------------------ Box Icon ------------------------------>
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!------------------------------ CSS------------------------------>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" href="{% static "css/feedback.css" %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="icon" href="{% static "images/books.png" %}" type="image/png">
 </head>
+
 <body>
-    hello {{user}} <br>
-    <form action="{% url 'feedback' %}" method="POST">
-        <input type="hidden" name='{{user}}'>
-        <textarea name="feedbackarea" id="" cols="30" rows="10" placeholder="Feedback" required></textarea>
-        <input type="submit" value="Submit">
-        {% csrf_token %}
-    </form>
+    {% if message %}
+      <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        const notyf = new Notyf({
+            duration: 3000,
+            position: {
+                x: 'center',
+                y: 'top',
+            },
+            types: [
+                {
+                    type: 'success',
+                    background: '#5cb85c',
+                    duration: 3000,
+                    dismissible: true
+                }
+            ]
+        });
+        notyf.success('{{message}}');
+    </script>
+    {% endif %}
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="{% url 'index' %}" class="nav-logo">MyLibrary</a>
+            <class class="nav-menu" id="nav_menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{% url 'index' %}" class="nav_link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}" class="nav_link">Dashboard </a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}" class="nav_link">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav_link">Contact</a></li>
+                    <li class="nav-item"><i class='bx bx-moon change-theme nav_link' id="theme-button"></i></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}"><i class='bx bx-log-out-circle nav_link' id="logout-btn"></i></a></li>
+                </ul>
+            </class>
+            </div>
+            <div class="nav_toggle" id="nav_toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="l-main">
+        <div class="container">
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-header-left">
+                        <div class="screen-header-button close"></div>
+                        <div class="screen-header-button maximize"></div>
+                        <div class="screen-header-button minimize"></div>
+                    </div>
+                    <div class="screen-header-right">
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                    </div>
+                </div>
+                <div class="screen-body">
+                    <div class="screen-body-item left">
+                        <div class="app-title">
+                            <span>CONTACT</span>
+                            <span>US</span>
+                        </div>
+                    </div>
+                    <div class="screen-body-item">
+                        <div class="app-form">
+                            <form action="{% url 'feedback' %}" method="POST">
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Name">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Email">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Contact No">
+                            </div>
+                            <div class="app-form-group message">
+                                <input class="app-form-control" name="feedbackarea" placeholder="Message" required>
+                            </div>
+                            <div class="app-form-group buttons">
+                                    <!-- <button type="reset" class="app-form-button">CANCEL</button> -->
+                                    <input type="reset" class="app-form-button" value="CANCLE">
+                                    <!-- <button type="submit" class="app-form-button">SEND</button> -->
+                                    <input type="submit" class="app-form-button" value="SEND">
+                                    {% csrf_token %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!------------------------------ FOOTER------------------------------>
+
+        <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo darkmode">MyLibrary</a>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title darkmode">Dashboard</h3>
+                    <ul>
+                        <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
+                        <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
+                        <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
+                        <li><a href="{% url 'shareAssignment' %}" class="footer__link">Assignment</a></li>
+                        <li><a href="{% url 'resource' %}" class="footer__link">Resources</a></li>
+                        <li><a href="http://makautexam.net/" class="footer__link" target="_blank">Makaut</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title darkmode">Information</h3>
+                    <ul>
+                        <li><a href="#" class="footer__link">Contact us</a></li>
+                        <li>GitHub Profile</li>
+                        <a href="https://github.com/Aditya201551" class="footer__social" target='_blank'><i
+                                class='bx bxl-github darkmode'></i></a>
+                        <a href="https://github.com/ManpreetKaur14" class="footer__social" target='_blank'><i
+                                class='bx bxl-github darkmode'></i></a>
+                        <li>LinkedIn Profile</li>
+                        <a href="https://www.linkedin.com/in/aditya-raj-390247193/" class="footer__social" target='_blank'><i
+                                class='bx bxl-linkedin darkmode'></i></a>
+                        <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social" target='_blank'><i
+                                class='bx bxl-linkedin darkmode'></i></a>
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </footer>
+
+        <!------------------------------ Scroll Reveal------------------------------>
+
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!------------------------------ JS------------------------------>
+
+        <script src="{% static "js/index.js" %}"></script>
+        <script src="{% static "js/darkmode.js" %}"></script>
+    </main>
+
 </body>
+
 </html>
