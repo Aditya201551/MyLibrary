@@ -97,3 +97,12 @@ def feedback(request):
         return render(request, 'feedback.html')
     else:
         return render(request, 'feedback.html')
+
+def returnBook(request, course, semester, subject):
+    model=BookModel.objects.filter(course=course, semester=semester)
+    return render(request, 'books.html', {
+        "model":model,
+        'course':course,
+        'semester':semester,
+        'subject':subject,
+    })

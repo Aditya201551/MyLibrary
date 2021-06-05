@@ -12,4 +12,6 @@ urlpatterns = [
     path('previousYear/',views.previousYear,name='previousYear'),
     path('shareAssignment/', views.shareAssignment, name='shareAssignment'),
     path('resource/',views.resource,name='resource'),
+    #dashboard
+    path('books/<str:course>/<str:semester>/<str:subject>',views.returnBook, name='books'),
 ]

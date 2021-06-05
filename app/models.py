@@ -7,3 +7,13 @@ class Feedback(models.Model):
 
     def __str__(self):
         return str(self.user.username)
+
+class BookModel(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    course = models.CharField(max_length=255)
+    semester = models.CharField(max_length=255)
+    subject = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name+" | "+self.course
