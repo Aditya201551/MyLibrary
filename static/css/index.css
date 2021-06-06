@@ -272,10 +272,11 @@
         border-radius : .5rem;
         transition: .3s;
         font-weight: 700;
+        border:0;
         margin-bottom: var(--mg-2);
     }
     .button:hover{
-      font-weight: 900;
+      /* font-weight: 900; */
       color: #fff;
     }
 

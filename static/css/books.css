@@ -1,0 +1,122 @@
+.preference
+{
+  margin-top: 10%;
+  align-content: center;
+}
+.book__container
+{
+    flex: 1  0 auto;
+    display: flex;
+    margin-top: 2%;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+.book__button
+{
+  justify-self: center;
+  text-align: center;
+}
+.container > .dropdown {
+  margin: 0 20px;
+  vertical-align: top;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 300px;
+  background: #ebf5fc;
+  /* border: 1px solid; */
+  border-color: #2c2c54;
+  border-radius: .5rem;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown:before, .dropdown:after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 4px dashed;
+ 
+  border-color: #2c2c54 transparent;
+  pointer-events: none;
+}
+
+.dropdown:before {
+  border-bottom-style: solid;
+  border-top: none;
+}
+
+.dropdown:after {
+  margin-top: 7px;
+  border-top-style: solid;
+  border-bottom: none;
+}
+
+.dropdown-select {
+  position: relative;
+  width: 130%;
+  margin: 0;
+  height: 40px;
+  outline: none;
+  padding: 6px 8px 6px 10px;
+  line-height: 14px;
+  font-size: var(--normal-size);
+  font-weight: 700;
+  color: #2c2c54;
+  background: #ebf5fc; 
+   border: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.dropdown-select:focus {
+  z-index: 3;
+  width: 100%;
+  color: #394349;
+  outline-offset: -2px;
+}
+
+.dropdown-select > option {
+  margin: 3px;
+  padding: 6px 8px;
+  text-shadow: none;
+  outline: none;
+  background: #ebf5fc;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+/* Fix for IE 8 putting the arrows behind the select element. */
+
+.lt-ie9 .dropdown {
+  z-index: 1;
+}
+
+.lt-ie9 .dropdown-select {
+  z-index: -1;
+}
+
+.lt-ie9 .dropdown-select:focus {
+  z-index: 3;
+}
+
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+
+@-moz-document url-prefix() {
+  .dropdown-select {
+    padding-left: 6px;
+  }
+}

@@ -64,7 +64,27 @@ def user_logout(request):
 
 @login_required(login_url='form')
 def books(request):
-    return HttpResponse("<h1>Books</h1>")
+    if request.method=="POST":
+        course=request.POST.get('one')
+        semester=request.POST.get('two')
+        subject=request.POST.get('three')
+        print(course+" "+semester+" "+subject)
+        if(course=='null' or semester=='null' or semester=='Select' or subject=='null'):
+            return render(request, 'books.html',{
+                'null':'INVALID VALUES SELECTED'
+            })
+        else:
+            model=Book.objects.filter(course=course, semester=semester, subject=subject).values()
+            print(model)
+            return render(request, 'books.html', {
+                'present': True,
+                'course': course,
+                'semester': semester,
+                'subject': subject,
+                'model': model
+            })
+    else:
+        return render(request, 'books.html')
 
 @login_required(login_url='form')
 def syllabus(request):
@@ -114,6 +134,7 @@ def test(request):
         course=request.POST.get('course')
         semester=request.POST.get('semester')
         subject=request.POST.get('subject')
+        print(course+" "+semester+" "+subject)
         model=Book.objects.filter(course=course, semester=semester, subject=subject).values()
 
         return render(request,'test.html', {

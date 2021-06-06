@@ -1,12 +1,257 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!------------------------------ Box Icon ------------------------------>
+
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<!------------------------------ CSS------------------------------>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/index.css" %}">
+<link rel="stylesheet" href="{% static "css/books.css" %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<title>Books</title>
 </head>
+
 <body>
-    
+    <!------------------------------ SCROLL TOP------------------------------>
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    </a>
+
+
+
+    <!------------------------------ HEADER------------------------------>
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="{% url 'index' %}" class="nav-logo">MyLibrary</a>
+            <class class="nav-menu" id="nav_menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{% url 'index' %}" class="nav_link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}#dashboard" class="nav_link">Dashboard </a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}#about" class="nav_link">About</a></li>
+                    <li class="nav-item"><a href="{% url 'feedback' %}" class="nav_link">Contact</a></li>
+                    <li class="nav-item"><i class='bx bx-moon change-theme nav_link' id="theme-button"></i></li>
+                    <li class="nav-item"><i class='bx bx-log-out-circle nav_link' id="logout-btn"></i></li>
+                </ul>
+            </class>
+            </div>
+            <div class="nav_toggle" id="nav_toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+
+    </header>
+
+    <!------------------------------ DropDown------------------------------>
+    <section class="preference">
+        <div class="dashboard__data">
+            <h2 class="dashboard-subtitle">Preferences</h2>
+        </div>
+        <form action="{% url 'books' %}" method="POST">
+            <div class="book__container bd-container bd-grid">
+                <div class="dropdown">
+                    <select name="one" class="dropdown-select" id="input" onchange="random_function()">
+                        <option value="null">Select Branch</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BBA">BBA</option>
+                        <option value="MCA">MCA</option>
+                        <option value="ME">B.Tech. ME</option>
+                        <option value="CSE">B.Tech. CSE</option>
+                        <option value="EI">B.Tech. EI</option>
+                        <option value="EC">B.Tech. EC</option>
+                        <option value="IT">B.Tech. IT</option>
+                        <option value="CE">B.Tech. CIVIL</option>
+                        <option value="EE">B.Tech. ELECTRICAL ENGG</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <select name="two" class="dropdown-select" id="output" onchange="random_function_sem()">
+                        <option value='null'>Select Semester</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <select name="three" class="dropdown-select" id="output2">
+                        <option value='null'>Select Subject</option>
+                    </select>
+                </div>
+                <div class="book__button">
+                    <input type="submit" value="Search" class="button">
+                </div>
+            </div>
+            {% csrf_token %}
+        </form>
+        <div class="about__data">
+            <span class="section-subtitle">Books Available</span>
+        </div>
+    </section>
+    <!-------------------------------book list--------------------------->
+    {% if present %}
+      <div class="list">
+          {% for i in model %}
+            <p>{{i.name}}</p>
+            <p>{{i.author}}</p><hr>
+          {% endfor %} 
+      </div>
+      {% else %}
+      <div class="list">
+          Please search above
+      </div>
+    {% endif %}
+    {% if null %}
+      <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        const notyf = new Notyf({
+            duration: 3000,
+            position: {
+                x: 'center',
+                y: 'top',
+            },
+            types: [
+                {
+                    type: 'error',
+                    background: 'indianred',
+                    duration: 3000,
+                    dismissible: true
+                }
+            ]
+        });
+        notyf.error('{{null}}');
+    </script>
+    <div class="list">
+        selct valid Branch, semester and subject
+    </div>
+    {% endif %}
+    <!------------------------------ FOOTER------------------------------>
+
+    <footer class="footer section bd-container">
+        <div class="footer__container bd-grid">
+            <div class="footer__content">
+                <a href="#" class="footer__logo">MyLibrary</a>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Dashboard</h3>
+                <ul>
+                    <li><a href="#" class="footer__link">Book</a></li>
+                    <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
+                    <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
+                    <li><a href="{% url 'shareAssignment' %}" class="footer__link">Assignment</a></li>
+                    <li><a href="{% url 'resource' %}" class="footer__link">Resources</a></li>
+                    <li><a href="http://makautexam.net/" target="_blank" class="footer__link">Makaut</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Information</h3>
+                <ul>
+                    <li>Contact us</li>
+                    <li>GitHub Profile</li>
+                    <a href="https://github.com/Aditya201551" class="footer__social"><i class='bx bxl-github'></i></a>
+                    <a href="https://github.com/ManpreetKaur14" class="footer__social"><i class='bx bxl-github'></i></a>
+                    <li>LinkedIn Profile</li>
+                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" class="footer__social"><i
+                            class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social"><i
+                            class='bx bxl-linkedin'></i></a>
+
+
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!------------------------------ Scroll Reveal------------------------------>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!------------------------------ JS------------------------------>
+
+    <script src="{% static "js/books.js" %}"></script>
+    <script src="{% static "js/index.js" %}"></script>
+
+    </main>
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="dropdown">
+  <select name="one" id="input" class="dropdown-select"  onchange="random_function()">
+    <option>Select Branch</option>
+    <option value="BCA">BCA</option>
+    <option value="BBA">BBA</option>
+    <option value="MCA">MCA</option>
+    <option value="ME">B.Tech. ME</option>
+    <option value="CE">B.Tech. CSE</option>
+    <option value="EI">B.Tech. EI</option>
+    <option value="EC">B.Tech. EC</option>
+    <option value="IT">B.Tech. IT</option>
+    <option value="CSE">B.Tech. CS</option>
+    <option value="EE">B.Tech. EE</option>
+  </select>
+</div>
+  
+<div class="dropdown dropdown-dark">
+        <select name="two" class="dropdown-select"  id="output" >
+          <option>Select Semester</option>
+        </select>
+</div> -->
