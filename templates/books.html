@@ -51,7 +51,7 @@
     <!------------------------------ DropDown------------------------------>
     <section class="preference">
         <div class="dashboard__data">
-            <h2 class="dashboard-subtitle">Preferences</h2>
+            <h2 class="dashboard-subtitle darkmode">Preferences</h2>
         </div>
         <form action="{% url 'books' %}" method="POST">
             <div class="book__container bd-container bd-grid">
@@ -86,23 +86,29 @@
             </div>
             {% csrf_token %}
         </form>
-        <div class="about__data">
-            <span class="section-subtitle">Books Available</span>
-        </div>
+        
     </section>
     <!-------------------------------book list--------------------------->
     {% if present %}
-      <div class="list">
-          {% for i in model %}
-            <p>{{i.name}}</p>
-            <p>{{i.author}}</p>
-            <a href="{{i.pdf.url}}">Download</a>
-            <hr>
-          {% endfor %} 
-      </div>
+        <section class="dashboard section bd-container" id="dashboard">
+            <div class="about__data">
+                <span class="section-subtitle darkmode">Books Available</span>
+            </div>
+            <article class="leaderboard">
+                <main class="leaderboard__profiles">
+                    {% for i in model %}
+                    <article class="leaderboard__profile">
+                        <span class="leaderboard__name">{{i.name}}</span>
+                        <span class="leaderboard__name">{{i.author}}</span>
+                        <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank">Download</a></span>
+                    </article>
+                    {% endfor %}
+                </main>
+            </article>
+        </section>
       {% else %}
-      <div class="list">
-          Please search above
+      <div style="text-align: center;font-size: 30px; opacity: 0.6; padding-top:50px">
+          <p>Please search above</p>
       </div>
     {% endif %}
     {% if null %}
@@ -125,20 +131,21 @@
         });
         notyf.error('{{null}}');
     </script>
-    <div class="list">
+    <div style="text-align: center;font-size: 30px; opacity: 0.6; padding-bottom: 100px;">
         selct valid Branch, semester and subject
     </div>
     {% endif %}
+    
     <!------------------------------ FOOTER------------------------------>
 
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">MyLibrary</a>
+                <a href="{% url 'index' %}" class="footer__logo darkmode">MyLibrary</a>
             </div>
 
             <div class="footer__content">
-                <h3 class="footer__title">Dashboard</h3>
+                <h3 class="footer__title darkmode">Dashboard</h3>
                 <ul>
                     <li><a href="#" class="footer__link">Book</a></li>
                     <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
@@ -149,16 +156,16 @@
                 </ul>
             </div>
             <div class="footer__content">
-                <h3 class="footer__title">Information</h3>
+                <h3 class="footer__title darkmode">Information</h3>
                 <ul>
                     <li>Contact us</li>
                     <li>GitHub Profile</li>
-                    <a href="https://github.com/Aditya201551" class="footer__social"><i class='bx bxl-github'></i></a>
-                    <a href="https://github.com/ManpreetKaur14" class="footer__social"><i class='bx bxl-github'></i></a>
+                    <a href="https://github.com/Aditya201551" class="footer__social darkmode"><i class='bx bxl-github'></i></a>
+                    <a href="https://github.com/ManpreetKaur14" class="footer__social darkmode"><i class='bx bxl-github'></i></a>
                     <li>LinkedIn Profile</li>
-                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" class="footer__social"><i
+                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" class="footer__social darkmode"><i
                             class='bx bxl-linkedin'></i></a>
-                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social"><i
+                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social darkmode"><i
                             class='bx bxl-linkedin'></i></a>
 
 
@@ -177,84 +184,8 @@
 
     <script src="{% static "js/books.js" %}"></script>
     <script src="{% static "js/index.js" %}"></script>
-
+    <script src="{% static "js/darkmode.js" %}"></script>
     </main>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="dropdown">
-  <select name="one" id="input" class="dropdown-select"  onchange="random_function()">
-    <option>Select Branch</option>
-    <option value="BCA">BCA</option>
-    <option value="BBA">BBA</option>
-    <option value="MCA">MCA</option>
-    <option value="ME">B.Tech. ME</option>
-    <option value="CE">B.Tech. CSE</option>
-    <option value="EI">B.Tech. EI</option>
-    <option value="EC">B.Tech. EC</option>
-    <option value="IT">B.Tech. IT</option>
-    <option value="CSE">B.Tech. CS</option>
-    <option value="EE">B.Tech. EE</option>
-  </select>
-</div>
-  
-<div class="dropdown dropdown-dark">
-        <select name="two" class="dropdown-select"  id="output" >
-          <option>Select Semester</option>
-        </select>
-</div> -->
