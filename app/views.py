@@ -78,9 +78,9 @@ def books(request):
             print(model)
             return render(request, 'books.html', {
                 'present': True,
-                'course': course,
-                'semester': semester,
-                'subject': subject,
+                # 'course': course,
+                # 'semester': semester,
+                # 'subject': subject,
                 'model': model
             })
     else:
@@ -88,7 +88,32 @@ def books(request):
 
 @login_required(login_url='form')
 def syllabus(request):
-    return HttpResponse('<h1>Syllabus</h1>')
+    if request.method=="POST":
+        course=request.POST.get('one')
+        if(course == 'null'):
+            model = Syllabus.objects.all()
+            return render(request, 'syllabus.html', {
+                'initial': True,
+                'model': model,
+            })
+        else:
+            if(Syllabus.objects.filter(course=course)):
+                model=Syllabus.objects.get(course=course)
+                return render(request, 'syllabus.html',{
+                    'present':True,
+                    'model':model,
+                })
+            else:
+                return render(request, 'syllabus.html', {
+                    'model':Syllabus.objects.all(),
+                    'null': 'To be added soon!'
+                })
+    else:
+        model=Syllabus.objects.all()
+        return render(request, 'syllabus.html', {
+            'initial':True,
+            'model':model
+        })
 
 @login_required(login_url='form')
 def previousYear(request):

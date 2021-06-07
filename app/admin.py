@@ -4,3 +4,4 @@ from app.models import *
 admin.site.register(Feedback)
 admin.site.register(TestModel)
 admin.site.register(BookModel)
+admin.site.register(Syllabus)
