@@ -7,26 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'test' %}" method="POST">
-        <input type="text" name='course' value="BCA"><br>
-        <input type="text" name="semester" value="2"><br>
-        <input type="text" name="subject" value="DBMS"><br>
-        <input type="submit" value="Submit">
-        {% csrf_token %}
-    </form>
-    <br><br><hr>
-    {% if present %}
     {% for i in model %}
-    {% ifequal i.course course %}
-    {% ifequal i.semester semester %}
-    {% ifequal i.subject subject %}
-    <p>Name: {{i.name}}</p>
-    <p>Descreption: {{i.description}}</p>
-    <hr>
-    {% endifequal %}
-    {% endifequal %}
-    {% endifequal %}
+      {{i.name}} <br>
+      {{i.image}} | {{i.image.url}} <br>
+      {{i.pdf}} | {{i.pdf.url}} <br>
+      <a href="{{i.pdf.url}}">PDF</a> <br>
+      <a href="{{i.image.url}}">IMAGE</a>
     {% endfor %}
-    {% endif %}
 </body>
 </html>

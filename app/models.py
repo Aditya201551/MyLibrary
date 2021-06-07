@@ -8,14 +8,19 @@ class Feedback(models.Model):
     def __str__(self):
         return str(self.user.username)
 
-class Book(models.Model):
+class TestModel(models.Model):
     name = models.CharField(max_length=255)
-    author=models.CharField(max_length=255)
-    course_itr=(
-        ('null','Select Branch'),
-        ('BCA','BCA'),
-        ('BBA','BBA'),
-        ('MCA','MCA'),
+    image=models.ImageField(upload_to='images')
+    pdf=models.FileField(upload_to='pdfs')
+
+class BookModel(models.Model):
+    name = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    course_itr = (
+        ('null', 'Select Branch'),
+        ('BCA', 'BCA'),
+        ('BBA', 'BBA'),
+        ('MCA', 'MCA'),
         ('ME', 'B.Tech. ME'),
         ('CSE', 'B.Tech. CSE'),
         ('EI', 'B.Tech. EI'),
@@ -24,27 +29,26 @@ class Book(models.Model):
         ('CE', 'B.Tech. CIVIL'),
         ('EE', 'B.Tech. ELECTRICAL ENGG')
     )
-    course=models.CharField(max_length=255, choices=course_itr, default='null')
-
-    semester_itr=(
-        ('1','1'),
-        ('2','2'),
-        ('3','3'),
-        ('4','4'),
-        ('5','5'),
-        ('6','6'),
-        ('7','7'),
-        ('8','8'),
+    course = models.CharField(max_length=255, choices=course_itr, default='null')
+    semester_itr = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+        ('6', '6'),
+        ('7', '7'),
+        ('8', '8'),
     )
-
-    semester=models.CharField(max_length=5,choices=semester_itr, default='1')
-
+    semester = models.CharField(max_length=5, choices=semester_itr, default='1')
     subject = models.CharField(max_length=255)
-    book=models.FileField(upload_to='books/')
+    pdf = models.FileField(upload_to='pdfs')
+
 
     def __str__(self):
-        return self.name+" | "+self.course
+        return self.name+" | "+self.course+" | "+self.semester+" | "+self.subject
+
 
     def delete(self):
-        self.book.storage.delete(str(self.book))
-        super(Book, self).delete()
+        self.pdf.storage.delete(str(self.pdf))
+        super(BookModel, self).delete()

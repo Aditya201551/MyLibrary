@@ -74,7 +74,7 @@ def books(request):
                 'null':'INVALID VALUES SELECTED'
             })
         else:
-            model=Book.objects.filter(course=course, semester=semester, subject=subject).values()
+            model=BookModel.objects.filter(course=course, semester=semester, subject=subject)
             print(model)
             return render(request, 'books.html', {
                 'present': True,
@@ -120,29 +120,8 @@ def feedback(request):
     else:
         return render(request, 'feedback.html')
 
-def returnBook(request, course, semester, subject):
-    model=Book.objects.filter(course=course, semester=semester)
-    return render(request, 'books.html', {
-        "model":model,
-        'course':course,
-        'semester':semester,
-        'subject':subject,
-    })
-
 def test(request):
-    if request.method=="POST":
-        course=request.POST.get('course')
-        semester=request.POST.get('semester')
-        subject=request.POST.get('subject')
-        print(course+" "+semester+" "+subject)
-        model=Book.objects.filter(course=course, semester=semester, subject=subject).values()
-
-        return render(request,'test.html', {
-            'present':True,
-            'course': course,
-            'semester': semester,
-            'subject': subject,
-            'model':model
-        })
-    else:
-        return render(request, 'test.html')
+    model=TestModel.objects.all()
+    return render(request,'test.html', {
+        'model':model,
+    })
