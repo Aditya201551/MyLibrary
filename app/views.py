@@ -117,7 +117,27 @@ def syllabus(request):
 
 @login_required(login_url='form')
 def previousYear(request):
-    return HttpResponse('<h1>Previous Year</h1>')
+    if request.method=="POST":
+        course=request.POST.get('one')
+        semester=request.POST.get('two')
+        if course=='null' or semester=='null' or semester=='Select':
+            return render(request, 'previousYear.html',{
+                'null':'Invalid Values Selected',
+            })
+        else:
+            if PreviousYear.objects.filter(course=course, semester=semester):
+                model = PreviousYear.objects.filter(
+                    course=course, semester=semester)
+                return render(request, 'previousYear.html', {
+                    'present': True,
+                    'model': model,
+                })
+            else:
+                return render(request, 'previousYear.html',{
+                    'null':"To be added soon!",
+                })
+    else:
+        return render(request,'previousYear.html')
 
 @login_required(login_url='form')
 def shareAssignment(request):

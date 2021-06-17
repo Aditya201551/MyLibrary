@@ -14,7 +14,8 @@
 <link rel="stylesheet" href="{% static "css/index.css" %}">
 <link rel="stylesheet" href="{% static "css/books.css" %}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-<title>Syllabus</title>
+<link rel="icon" href="{% static "images/books.png" %}" type="image/png">
+<title>Books</title>
 </head>
 
 <body>
@@ -28,15 +29,16 @@
     <!------------------------------ HEADER------------------------------>
     <header class="l-header" id="header">
         <nav class="nav bd-container">
-            <a href="#" class="nav-logo">MyLibrary</a>
+            <a href="{% url 'index' %}" class="nav-logo">MyLibrary</a>
             <class class="nav-menu" id="nav_menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="{% url 'index' %}" class="nav_link">Home</a></li>
                     <li class="nav-item"><a href="{% url 'index' %}#dashboard" class="nav_link">Dashboard </a></li>
                     <li class="nav-item"><a href="{% url 'index' %}#about" class="nav_link">About</a></li>
-                    <li class="nav-item"><a href="{% url 'index' %}#contact" class="nav_link">Contact</a></li>
+                    <li class="nav-item"><a href="{% url 'feedback' %}" class="nav_link">Contact</a></li>
                     <li class="nav-item"><i class='bx bx-moon change-theme nav_link' id="theme-button"></i></li>
-                    <li class="nav-item"><i class='bx bx-log-out-circle nav_link' id="logout-btn"></i></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}"><i class='bx bx-log-out-circle nav_link'
+                                id="logout-btn"></i></a></li>
                 </ul>
             </class>
             </div>
@@ -50,9 +52,9 @@
     <!------------------------------ DropDown------------------------------>
     <section class="preference">
         <div class="dashboard__data">
-            <h2 class="dashboard-subtitle">Preferences</h2>
+            <h2 class="dashboard-subtitle darkmode">Preferences</h2>
         </div>
-        <form action="{% url 'syllabus' %}" method='POST'>
+        <form action="{% url 'previousYear' %}" method="POST">
             <div class="book__container bd-container bd-grid">
                 <div class="dropdown">
                     <select name="one" class="dropdown-select" id="input" onchange="random_function()">
@@ -65,56 +67,50 @@
                         <option value="EI">B.Tech. EI</option>
                         <option value="EC">B.Tech. EC</option>
                         <option value="IT">B.Tech. IT</option>
-                        <option value="CE">B.Tech. CE</option>
-                        <option value="EE">B.Tech. EE</option>
+                        <option value="CE">B.Tech. CIVIL</option>
+                        <option value="EE">B.Tech. ELECTRICAL ENGG</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <select name="two" class="dropdown-select" id="output" onchange="random_function_sem()">
+                        <option value='null'>Select Semester</option>
                     </select>
                 </div>
                 <!-- <div class="dropdown">
-                    <select name="two" class="dropdown-select" id="output" onchange="random_function_sem()">
-                        <option value="null">Select Semester</option>
-                    </select> -->
-                </div>
+                    <select name="three" class="dropdown-select" id="output2">
+                        <option value='null'>Select Subject</option>
+                    </select>
+                </div> -->
                 <div class="book__button">
                     <input type="submit" value="Search" class="button" style="cursor: pointer;">
                 </div>
-                {% csrf_token %}
             </div>
+            {% csrf_token %}
         </form>
+
     </section>
-    <!------------------------------ syllabus --------------------------->
+    <!-------------------------------book list--------------------------->
     {% if present %}
     <section class="dashboard section bd-container" id="dashboard">
         <div class="about__data">
-            <span class="section-subtitle darkmode">Syllabus</span>
-        </div>
-        <article class="leaderboard">
-            <main class="leaderboard__profiles">
-                <article class="leaderboard__profile">
-                    <span class="leaderboard__name">
-                {{model.course}}</span>
-                    <span class="leaderboard__name">Verified</span>    <span class="leaderboard__name"><a href="{{model.pdf.url}}" target="_blank">Download</a></span>
-                </article>
-            </main>
-        </article>
-    </section>
-    {% endif %}
-    {% if initial %}
-    <section class="dashboard section bd-container" id="dashboard">
-        <div class="about__data">
-            <span class="section-subtitle darkmode">Syllabus</span>
+            <span class="section-subtitle darkmode">Previous Year Available</span>
         </div>
         <article class="leaderboard">
             <main class="leaderboard__profiles">
                 {% for i in model %}
                 <article class="leaderboard__profile">
-                    <span class="leaderboard__name">{{i.course}}</span>
-                    <span class="leaderboard__name">Verified</span>
+                    <span class="leaderboard__name">{{i.semester}}</span>
+                    <span class="leaderboard__name">{{i.subject}}</span>
                     <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank">Download</a></span>
                 </article>
                 {% endfor %}
             </main>
         </article>
     </section>
+    {% else %}
+    <div style="text-align: center;font-size: 30px; opacity: 0.6; padding-top:50px">
+        <p>Please search above</p>
+    </div>
     {% endif %}
     {% if null %}
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
@@ -136,55 +132,44 @@
         });
         notyf.error('{{null}}');
     </script>
-<section class="dashboard section bd-container" id="dashboard">
-    <div class="about__data">
-        <span class="section-subtitle darkmode">Syllabus</span>
+    <div style="text-align: center;font-size: 30px; opacity: 0.6; padding-bottom: 100px;">
+        Select valid Branch, semester and subject
     </div>
-    <article class="leaderboard">
-        <main class="leaderboard__profiles">
-            {% for i in model %}
-            <article class="leaderboard__profile">
-                <span class="leaderboard__name">{{i.course}}</span>
-                <span class="leaderboard__name">Verified</span>
-                <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank">Download</a></span>
-            </article>
-            {% endfor %}
-        </main>
-    </article>
-</section>
     {% endif %}
+
     <!------------------------------ FOOTER------------------------------>
 
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">MyLibrary</a>
+                <a href="{% url 'index' %}" class="footer__logo darkmode">MyLibrary</a>
             </div>
 
             <div class="footer__content">
-                <h3 class="footer__title">Dashboard</h3>
+                <h3 class="footer__title darkmode">Dashboard</h3>
                 <ul>
                     <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
-                    <li><a href="#" class="footer__link">Syllabus</a></li>
-                    <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
+                    <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
+                    <li><a href="#" class="footer__link">Previous Year</a></li>
                     <li><a href="{% url 'shareAssignment' %}" class="footer__link">Assignment</a></li>
                     <li><a href="{% url 'resource' %}" class="footer__link">Resources</a></li>
                     <li><a href="http://makautexam.net/" target="_blank" class="footer__link">Makaut</a></li>
                 </ul>
             </div>
             <div class="footer__content">
-                <h3 class="footer__title">Information</h3>
+                <h3 class="footer__title darkmode">Information</h3>
                 <ul>
                     <li>Contact us</li>
-                    <h3 class="footer__title">GitHub Profile</h3>
-                    <a href="https://github.com/Aditya201551" class="footer__social" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href="https://github.com/ManpreetKaur14" class="footer__social" target="_blank"><i class='bx bxl-github'></i></a>
-                    <h3 class="footer__title">LinkedIn Profile</h3>
-                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" target="_blank" class="footer__social"><i
-                            class='bx bxl-linkedin'></i></a>
-                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" target="_blank" class="footer__social"><i
-                            class='bx bxl-linkedin'></i></a>
-
+                    <li>GitHub Profile</li>
+                    <a href="https://github.com/Aditya201551" target="_blank" class="footer__social darkmode"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://github.com/ManpreetKaur14" target="_blank" class="footer__social darkmode"><i
+                            class='bx bxl-github'></i></a>
+                    <li>LinkedIn Profile</li>
+                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" class="footer__social darkmode"
+                        target="_blank"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social darkmode"
+                        target="_blank"><i class='bx bxl-linkedin'></i></a>
 
 
                 </ul>
@@ -202,7 +187,7 @@
 
     <script src="{% static "js/books.js" %}"></script>
     <script src="{% static "js/index.js" %}"></script>
-
+    <script src="{% static "js/darkmode.js" %}"></script>
     </main>
 </body>
 
