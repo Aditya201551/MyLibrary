@@ -69,11 +69,11 @@ class Syllabus(models.Model):
         ('EE', 'B.Tech. ELECTRICAL ENGG')
     )
     course = models.CharField(max_length=255, choices=course_itr, default='null')
-    
+
     pdf=models.FileField(upload_to='syllabus')
 
     def __str__(self):
-        return self.course+" | "+self.semester
+        return self.course
 
     def delete(self):
         self.pdf.storage.delete(str(self.pdf))
