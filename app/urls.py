@@ -13,6 +13,12 @@ urlpatterns = [
     path('syllabus/',views.syllabus, name='syllabus'),
     path('previousYear/',views.previousYear,name='previousYear'),
     path('resource/',views.resource,name='resource'),
+    path('resource/placement/',views.placement, name='placement'),
+    path('resource/placement/site/', views.placementSite, name='intersite'),
+    path('resource/placement/youtube/', views.placementYT, name='interyt'),
+    path('resource/academic', views.academic, name='academic'),
+    path('resource/academic/site/', views.academicSite, name='academicSites'),
+    path('resource/academic/youtube', views.academicYT, name='academicYT')
 ]
 
 if settings.DEBUG:

@@ -140,8 +140,19 @@ def previousYear(request):
         return render(request,'previousYear.html')
 
 def resource(request):
-    return HttpResponse("<h1> Resources </h1>")
-
+    return render(request, 'resources/resource.html')
+def academic(request):
+    return render(request, 'resources/academic.html')
+def academicYT(request):
+    return render(request, 'resources/academicYT.html')
+def academicSite(request):
+    return render(request, 'resources/academicSite.html')
+def placement(request):
+    return render(request, 'resources/placement.html')
+def placementSite(request):
+    return render(request, 'resources/placementSite.html')
+def placementYT(request):
+    return render(request, 'resources/placementYT.html')
 login_required('form')
 def contact(request):
     return HttpResponse("<h1form> Contact us</h1>")

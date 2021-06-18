@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!------------------------------ Box Icon ------------------------------>
+
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<!------------------------------ CSS------------------------------>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/index.css" %}">
+<link rel="stylesheet" href="{% static "css/books.css" %}">
+<link rel="stylesheet" href="{% static "css/placementSite.css" %}">
+<link rel="icon" href="{% static "images/books.png" %}" type="image/png">
+<title>Youtube</title>
+</head>
+
+<body>
+    <!------------------------------ SCROLL TOP------------------------------>
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    </a>
+
+
+
+    <!------------------------------ HEADER------------------------------>
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="{% url 'index' %}" class="nav-logo">MyLibrary</a>
+            <class class="nav-menu" id="nav_menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{% url 'index' %}" class="nav_link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}#dashboard" class="nav_link">Dashboard </a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}#about" class="nav_link">About</a></li>
+                    <li class="nav-item"><a href="{% url 'index' %}#contact" class="nav_link">Contact</a></li>
+                    <li class="nav-item"><i class='bx bx-moon change-theme nav_link' id="theme-button"></i></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'logout' %}"><i class='bx bx-log-out-circle nav_link'
+                                id="logout-btn"></i></a></li>
+                    {% else %}
+                    <li class="nav-item"><a href="{% url 'form' %}"><i class='bx bx-log-out-circle nav_link'
+                                id="logout-btn"></i></a></li>
+                    {% endif %}
+                </ul>
+            </class>
+            </div>
+            <div class="nav_toggle" id="nav_toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    
+    </header>
+
+    <!------------------------------ Sites------------------------------>
+    <section class="dashboard section bd-container" id="dashboard">
+        <div class="dashboard__data">
+            <h2 class="dashboard-subtitle">Useful Channels</h2>
+        </div>
+        <article class="leaderboard">
+            <main class="leaderboard__profiles">
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwnheODMd4JO9MrosE5o8seROknqbdHJ4VSZOqGW49Q=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Feel Free to Learn</span>
+                    <span class="leaderboard__value"><a
+                            href="https://www.youtube.com/channel/UCtmn-DsF4BhPug-ff9LiDAA/videos" target="_blank"
+                            class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwniQp4qa2ec94U4kLG_GsC4gWea-Ki0F4e55LndAiw=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Current Affairs Funda (Aptitude & LR)</span>
+                    <span class="leaderboard__value"><a
+                            href="https://www.youtube.com/channel/UCaeV-KuLy-kE8VekBD8LOwA/videos" target="_blank"
+                            class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwnj36KRTG3X4gpblm4kW-bzcDRO7CQLu9DG0g_O8tw=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">The Interview Guys</span>
+                    <span class="leaderboard__value"><a href="https://www.youtube.com/channel/UCiQNvBItd1s9Bei2Zkmar4A"
+                            target="_blank" class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwnjsAEdiigVmLpFJ-20UaqDmC-3PDgg1GghRvIGz=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Linda Raynier</span>
+                    <span class="leaderboard__value"><a href="https://www.youtube.com/channel/UCXUyg1vYSupswhi0zNeD-5w"
+                            target="_blank" class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwni01oSoi5t2MWMcZ9O8W_1ByQfYPpFpGXFUwBmcEQ=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Aptitude-Reasoning-Shortcuts-Tips-Tricks</span>
+                    <span class="leaderboard__value"><a
+                            href="https://www.youtube.com/channel/UCX5gnY7wWPUQfhGTSeV_7nw/videos" target="_blank"
+                            class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwngdYXkpuQkYFEjhyFZAYxujFiAXeg7p3HwnYLni=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Engineer by Heart</span>
+                    <span class="leaderboard__value"><a
+                            href="https://www.youtube.com/channel/UCFQWEfu0N7NwPh3tKTp1e1Q/videos" target="_blank"
+                            class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwniwov8XwmtVIPTcCIkwUwpbd_Zvv322JybrqXDi=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Career Contessa</span>
+                    <span class="leaderboard__value"><a href="https://www.youtube.com/channel/UCAC8Y3gJMuhGsjNWyufUNAQ"
+                            target="_blank" class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwniiqbDMc8VfU2nZhR0XeHvwJoNKBcL5Upoj14CB=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Quantitative Aptitude</span>
+                    <span class="leaderboard__value"><a href="https://edyst.com/" target="_blank" class="link"><i
+                                class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+
+                <article class="leaderboard__profile">
+                    <img src="https://yt3.ggpht.com/ytc/AAUvwnjuXOWKbuak5I7r_FgJefIVpHMtd55zKTR7AC2d-bA=s88-c-k-c0x00ffffff-no-rj"
+                        class="leaderboard__picture">
+                    <span class="leaderboard__name">Testbook.com</span>
+                    <span class="leaderboard__value"><a href="https://www.youtube.com/channel/UCgM9qPLv7R-hTRQIGa4wgKA"
+                            target="_blank" class="link"><i class='bx bxs-right-arrow-square'></i></a></span>
+                </article>
+            </main>
+        </article>
+    </section>
+
+    <!------------------------------ FOOTER------------------------------>
+
+    <footer class="footer section bd-container">
+        <div class="footer__container bd-grid">
+            <div class="footer__content">
+                <a href="{% url 'index' %}" class="footer__logo">MyLibrary</a>
+            </div>
+    
+            <div class="footer__content">
+                <h3 class="footer__title">Dashboard</h3>
+                <ul>
+                    <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
+                    <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
+                    <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
+                    <li><a href="#" class="footer__link">Resources</a></li>
+                    <li><a href="http://makautexam.net/" class="footer__link">Makaut</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Information</h3>
+                <ul>
+                    <li><a href="{% url 'contact' %}" class="footer__link">Contact us</a></li>
+                    <h3 class="footer__title">GitHub Profile</h3>
+                    <a href="https://github.com/Aditya201551" class="footer__social"><i class='bx bxl-github'></i></a>
+                    <a href="https://github.com/ManpreetKaur14" class="footer__social"><i class='bx bxl-github'></i></a>
+                    <h3 class="footer__title">LinkedIn Profile</h3>
+                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" class="footer__social"><i
+                            class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social"><i
+                            class='bx bxl-linkedin'></i></a>
+    
+                </ul>
+            </div>
+    
+        </div>
+    </footer>
+    
+    
+    <!------------------------------ Scroll Reveal------------------------------>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!------------------------------ JS------------------------------>
+    
+    <script src="{% static "js/books.js" %}"></script>
+    <script src="{% static "js/index.js" %}"></script>
+
+    </main>
+</body>
+
+</html>
