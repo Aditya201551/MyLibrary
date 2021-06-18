@@ -139,10 +139,6 @@ def previousYear(request):
     else:
         return render(request,'previousYear.html')
 
-@login_required(login_url='form')
-def shareAssignment(request):
-    return HttpResponse('<h1> Share Assignment </h1>')
-
 def resource(request):
     return HttpResponse("<h1> Resources </h1>")
 

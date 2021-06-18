@@ -65,7 +65,7 @@
                     {% else %}
                     <a href="{% url 'form' %}" class="button">Get Started</a>
                     {% endif %}
-                </div>
+                </div class='selectDisable'>
                     <img src="{% static "images/janko-ferlic-sfL_QOnmy00-unsplash.jpg" %}" alt="no img" class="home__img">
                  </class>
                 </div>
@@ -122,21 +122,6 @@
                             Previous Year
                         </h3>
                         <a href="{% url 'previousYear' %}">Get Started</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="box">
-                    <div class="content">
-                        <div class="img-background">
-                            <div class="card-img">
-                                <img src="{% static "images/assignment.png" %}" alt="">
-                            </div>
-                        </div>
-                        <h3>
-                           Assignments
-                        </h3>
-                        <a href="{% url 'shareAssignment' %}">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -219,7 +204,6 @@
                         <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
                         <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
                         <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
-                        <li><a href="{% url 'shareAssignment' %}" class="footer__link">Assignment</a></li>
                         <li><a href="{% url 'resource' %}" class="footer__link">Resources</a></li>
                         <li><a href="http://makautexam.net/" class="footer__link" target="_blank">Makaut</a></li>
                     </ul>

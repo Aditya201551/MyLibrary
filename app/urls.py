@@ -12,9 +12,7 @@ urlpatterns = [
     path('books/', views.books, name='books'),
     path('syllabus/',views.syllabus, name='syllabus'),
     path('previousYear/',views.previousYear,name='previousYear'),
-    path('shareAssignment/', views.shareAssignment, name='shareAssignment'),
     path('resource/',views.resource,name='resource'),
-    path('test/',views.test,name='test'),
 ]
 
 if settings.DEBUG:
