@@ -69,18 +69,7 @@ class Syllabus(models.Model):
         ('EE', 'B.Tech. ELECTRICAL ENGG')
     )
     course = models.CharField(max_length=255, choices=course_itr, default='null')
-    semester_itr = (
-        ('1', '1'),
-        ('2', '2'),
-        ('3', '3'),
-        ('4', '4'),
-        ('5', '5'),
-        ('6', '6'),
-        ('7', '7'),
-        ('8', '8'),
-    )
-    semester = models.CharField(max_length=5, choices=semester_itr, default='1')
-
+    
     pdf=models.FileField(upload_to='syllabus')
 
     def __str__(self):
