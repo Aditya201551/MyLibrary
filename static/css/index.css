@@ -455,6 +455,9 @@ font-weight: 700;
     color: var(--first-color);
     font-weight: var(--font-semi-bold);
   }
+  .footer__logo:hover{
+    color:var(--second-color);
+  }
   
   .footer__description{
     display: block;
