@@ -52,7 +52,7 @@
     <!------------------------------ DropDown------------------------------>
     <section class="preference">
         <div class="dashboard__data">
-            <h2 class="dashboard-subtitle">Preferences</h2>
+            <h2 class="dashboard-subtitle darkmode">Preferences</h2>
         </div>
         <form action="{% url 'syllabus' %}" method='POST'>
             <div class="book__container bd-container bd-grid">
@@ -160,11 +160,11 @@
     <footer class="footer section bd-container">
         <div class="footer__container bd-grid">
             <div class="footer__content">
-                <a href="#" class="footer__logo">MyLibrary</a>
+                <a href="{% url 'index' %}" class="footer__logo darkmode">MyLibrary</a>
             </div>
 
             <div class="footer__content">
-                <h3 class="footer__title">Dashboard</h3>
+                <h3 class="footer__title darkmode">Dashboard</h3>
                 <ul>
                     <li><a href="{% url 'books' %}" class="footer__link">Book</a></li>
                     <li><a href="#" class="footer__link">Syllabus</a></li>
@@ -174,16 +174,16 @@
                 </ul>
             </div>
             <div class="footer__content">
-                <h3 class="footer__title">Information</h3>
+                <h3 class="footer__title darkmode">Information</h3>
                 <ul>
                     <li>Contact us</li>
-                    <h3 class="footer__title">GitHub Profile</h3>
-                    <a href="https://github.com/Aditya201551" class="footer__social" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href="https://github.com/ManpreetKaur14" class="footer__social" target="_blank"><i class='bx bxl-github'></i></a>
-                    <h3 class="footer__title">LinkedIn Profile</h3>
-                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" target="_blank" class="footer__social"><i
+                    <h3 class="footer__title darkmode">GitHub Profile</h3>
+                    <a href="https://github.com/Aditya201551" class="footer__social darkmode" target="_blank"><i class='bx bxl-github'></i></a>
+                    <a href="https://github.com/ManpreetKaur14" class="footer__social darkmode" target="_blank"><i class='bx bxl-github'></i></a>
+                    <h3 class="footer__title darkmode">LinkedIn Profile</h3>
+                    <a href="https://www.linkedin.com/in/aditya-raj-390247193/" target="_blank" class="footer__social darkmode"><i
                             class='bx bxl-linkedin'></i></a>
-                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" target="_blank" class="footer__social"><i
+                    <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" target="_blank" class="footer__social darkmode"><i
                             class='bx bxl-linkedin'></i></a>
 
 
@@ -203,6 +203,7 @@
 
     <script src="{% static "js/books.js" %}"></script>
     <script src="{% static "js/index.js" %}"></script>
+    <script src="{% static "js/darkmode.js" %}"></script>
 
     </main>
 </body>
