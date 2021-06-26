@@ -97,7 +97,7 @@ DATABASES = {
         'USER': 'jugsbltzltjptq',
         'PASSWORD': '7f23109d53c96caac534f85622dffc76e823706b2bd9adbe01f9a6bcf3f76f8a',
         'HOST': 'ec2-35-170-85-206.compute-1.amazonaws.com',
-        'POST':5432,
+        'PORT':5432,
     }
 }
 
