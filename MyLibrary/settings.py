@@ -93,10 +93,11 @@ WSGI_APPLICATION = 'MyLibrary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'MyLibrary',
-        'USER': 'postgres',
-        'PASSWORD': 'test',
-        'HOST':'localhost',
+        'NAME': 'dnv6k2oov5v9s',
+        'USER': 'jugsbltzltjptq',
+        'PASSWORD': '7f23109d53c96caac534f85622dffc76e823706b2bd9adbe01f9a6bcf3f76f8a',
+        'HOST': 'ec2-35-170-85-206.compute-1.amazonaws.com',
+        'POST':5432,
     }
 }
 
