@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'MyLibrary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'MyLibrary',
-        'USER': 'postgres',
-        'PASSWORD': 'test',
-        'HOST':'localhost',
+        'NAME':'my_library',
+        'USER': 'crispy',
+        'PASSWORD': 'DedSecForever',
+        'HOST':'mumbai.c6azn6td0bfh.ap-south-1.rds.amazonaws.com',
     }
 }
 
@@ -207,7 +207,4 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_heroku.settings(locals())
