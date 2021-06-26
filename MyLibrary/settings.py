@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     #discord
     'allauth.socialaccount.providers.discord',
+    #aws
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -93,10 +95,10 @@ WSGI_APPLICATION = 'MyLibrary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'my_library',
-        'USER': 'crispy',
-        'PASSWORD': 'DedSecForever',
-        'HOST':'mumbai.c6azn6td0bfh.ap-south-1.rds.amazonaws.com',
+        'NAME':'MyLibrary',
+        'USER': 'postgres',
+        'PASSWORD': 'test',
+        'HOST':'localhost',
     }
 }
 
@@ -207,4 +209,17 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 django_heroku.settings(locals())
+
+# !AWS S3 bucket config
+AWS_ACCESS_KEY_ID = 'AKIAZV4D6B4TXOFKDJBS'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'my-library-makaut'
+
+AWS_S3_FILE_OVERWRITE = True
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
