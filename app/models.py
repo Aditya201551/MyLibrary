@@ -8,11 +8,6 @@ class Feedback(models.Model):
     def __str__(self):
         return str(self.user.username)
 
-class TestModel(models.Model):
-    name = models.CharField(max_length=255)
-    image=models.ImageField(upload_to='images')
-    pdf=models.FileField(upload_to='pdfs')
-
 class BookModel(models.Model):
     name = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
@@ -42,7 +37,7 @@ class BookModel(models.Model):
     )
     semester = models.CharField(max_length=5, choices=semester_itr, default='1')
     subject = models.CharField(max_length=255)
-    pdf = models.FileField(upload_to='pdfs')
+    pdf = models.FileField(upload_to='static/media/pdfs')
 
 
     def __str__(self):
@@ -70,7 +65,7 @@ class Syllabus(models.Model):
     )
     course = models.CharField(max_length=255, choices=course_itr, default='null')
 
-    pdf=models.FileField(upload_to='syllabus')
+    pdf=models.FileField(upload_to='static/media/syllabus')
 
     def __str__(self):
         return self.course
