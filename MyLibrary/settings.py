@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#cloud_sql_proxy.exe -instances="my-library-315709:asia-south1:my-library-db"=tcp:3306
 
 # Application definition
 
@@ -90,16 +91,35 @@ WSGI_APPLICATION = 'MyLibrary.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dnv6k2oov5v9s',
-        'USER': 'jugsbltzltjptq',
-        'PASSWORD': '7f23109d53c96caac534f85622dffc76e823706b2bd9adbe01f9a6bcf3f76f8a',
-        'HOST': 'ec2-35-170-85-206.compute-1.amazonaws.com',
-        'PORT':5432,
+# [START db_setup]
+if os.getenv('GAE_APPLICATION', None):
+    # Running on production App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'HOST': '/cloudsql/my-library-315709:asia-south1:my-library-db',
+            'USER': 'postgres',
+            'PASSWORD': 'admin',
+            'NAME': 'postgres',
+        }
     }
-}
+else:
+    # Running locally so connect to either a local MySQL instance or connect
+    # to Cloud SQL via the proxy.  To start the proxy via command line:
+    #    $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
+    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'admin',
+        }
+    }
+# [END db_setup]
 
 db_form_env=dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_form_env)
@@ -149,10 +169,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+from google.oauth2 import service_account
+GS_CREDENTIALS=service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'my-library-315709-43843933fee1.json')
+)
+
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -161,6 +187,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
 MEDIA_URL = 'media/'
+
+DEFAULT_FILE_STORAGE ='MyLibrary.gcloud.GoogleCloudMediaFileStorage'
+GS_PROJECT_ID = 'my-library-315709'
+GS_BUCKET_NAME = 'my-library-bucket'
+MEDIA_ROOT = "media/"
+UPLOAD_ROOT = 'media/uploads/'
+MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
 
 AUTHENTICATION_BACKENDS = (
