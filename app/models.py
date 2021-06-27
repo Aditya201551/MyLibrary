@@ -37,7 +37,7 @@ class BookModel(models.Model):
     )
     semester = models.CharField(max_length=5, choices=semester_itr, default='1')
     subject = models.CharField(max_length=255)
-    pdf = models.FileField(upload_to='static/media/pdfs')
+    pdf = models.FileField(upload_to='pdfs')
 
 
     def __str__(self):
@@ -65,7 +65,7 @@ class Syllabus(models.Model):
     )
     course = models.CharField(max_length=255, choices=course_itr, default='null')
 
-    pdf=models.FileField(upload_to='static/media/syllabus')
+    pdf=models.FileField(upload_to='syllabus')
 
     def __str__(self):
         return self.course
