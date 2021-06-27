@@ -185,9 +185,6 @@ STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
-MEDIA_URL = 'media/'
-
 DEFAULT_FILE_STORAGE ='MyLibrary.gcloud.GoogleCloudMediaFileStorage'
 GS_PROJECT_ID = 'my-library-315709'
 GS_BUCKET_NAME = 'my-library-bucket'
