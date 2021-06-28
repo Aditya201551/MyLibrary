@@ -157,11 +157,12 @@ function random_function_sem() {
   } else if (a == "ME" && b == "2") {
     arr2 = [
       "Select Subject",
-      "BS-PH101",
-      "BS-CH101",
-      "BS-M101",
-      "BS-M102",
-      "ES-EE101",
+      "BS-PH201",
+      "BS-CH201",
+      "BS-M201",
+      "BS-M202",
+      "ES-CS201",
+      "HM-HU201",
     ];
   } else if (a == "ME" && b == "3") {
     arr2 = [
@@ -190,19 +191,225 @@ function random_function_sem() {
       "PC-ME-503",
       "HM-HU-501",
     ];
+  }else if(a=="ME" && b=="6"){
+    arr2=[
+      "Select Subject",
+      "HM-HU601",
+      "PC-ME601",
+      "PC-ME602",
+      "PC-ME601D",
+      "PE-ME602I",
+      "MC-601",
+    ];
   }
-  // else if(a=="ME" && b=="6")
-  // {
-  //     arr2=["Select Subject","BS-PH101","BS-CH101","BS-M101","BS-M102","ES-EE101"];
-  // }
-  // else if(a=="ME" && b=="7")
-  // {
-  //     arr2=["Select Subject","BS-PH101","BS-CH101","BS-M101","BS-M102","ES-EE101"];
-  // }
-  // else if(a=="ME" && b=="8")
-  // {
-  //     arr2=["Select Subject","BS-PH101","BS-CH101","BS-M101","BS-M102","ES-EE101"];
-  // }
+  else if(a=="ME" && b=="7"){
+    arr2=[
+      "Select Subject",
+      "BS-PH101",
+      "BS-CH101",
+      "BS-M101",
+      "BS-M102",
+      "ES-EE101"
+    ];
+  }
+  else if(a=="ME" && b=="8"){
+    arr2=[
+      "Select Subject",
+      "ME-801(HU)",
+      "ME-802A",
+      "ME-802B",
+      "ME-802C",
+      "ME-803B",
+      "ME-803D",
+      
+    ];
+  }
+
+  // =========================B-TECH (CSE)============================
+  else if (a == "CSE" && b == "1") {
+    arr2 = [
+      "Select Subject",
+      "BS-PH101",
+      "BS-CH101",
+      "BS-M101",
+      "BS-M102",
+      "ES-EE101",
+    ];
+  } 
+  else if (a == "CSE" && b == "2") {
+    arr2 = [
+      "Select Subject",
+      "BS-PH201",
+      "BS-CH201",
+      "BS-M201",
+      "BS-M202",
+      "ES-CS201",
+      "HM-HU201"
+    ];
+  } 
+  else if (a == "CSE" && b == "3") {
+    arr2 = [
+      "Select Subject",
+      "ESC-301",
+      "PCC-CS-301",
+      "PCC-CS-302",
+      "BSC-301",
+      "HSMC-301",
+    ];
+  } 
+  else if (a == "CSE" && b == "4") {
+    arr2 = [
+      "Select Subject",
+      "PCC-CS-401",
+      "PCC-CS-402",
+      "PCC-CS-403",
+      "PCC-CS-404",
+      "MCA-401",
+      "BSC-401",
+    ];
+  } 
+  else if (a == "CSE" && b == "5") {
+    arr2 = [
+      "Select Subject",
+      "ESC-501",
+      "PCC-CS-501",
+      "PCC-CS-502",
+      "PCC-CS-503",
+      "PEC-IT-501-B",
+      "PEC-IT-501-D",
+      "HSMC-501",
+    ];
+  }  else if (a == "CSE" && b == "6") {
+    arr2 = [
+      "Select Subject",
+      "PCC-CS601",
+      "PCC-CS602",
+      "PEC-IT601A",
+      "PEC-IT601B",
+      "PEC-IT601C",
+      "PEC-IT601D",
+      "PEC-IT602B",
+    ];
+  }  else if (a == "CSE" && b == "7") {
+    arr2 = [
+      "Select Subject",
+      "CS-701",
+      "CS-702",
+      "CS-703",
+      "CS-704A",
+      "CS-704B",
+      "CS-704C",
+      "CS-704E",
+      "CS-705A",
+      "CS-705B",
+    ];
+  } 
+  else if (a == "CSE" && b == "8") {
+    arr2 = [
+      "Select Subject",
+      "HU801A",
+      "HU801B",
+      "CS801A",
+      "CS801D",
+      "CS802B",
+      "CS802C",
+      "CS802E",
+    ];
+  } 
+
+
+  
+  // =========================B-TECH (EI)============================
+  else if (a == "EI" && b == "1") {
+    arr2 = [
+      "Select Subject",
+      "BS-PH101",
+      "BS-CH101",
+      "BS-M101",
+      "BS-M102",
+      "ES-EE101",
+    ];
+  } 
+  else if (a == "EI" && b == "2") {
+    arr2 = [
+      "Select Subject",
+      "BS-PH201",
+      "BS-CH201",
+      "BS-M201",
+      "BS-M202",
+      "ES-CS201",
+      "HM-HU201",
+    ];
+  }
+  else if (a == "EI" && b == "3") {
+    arr2 = [
+      "Select Subject",
+      "BS-M-301",
+      "PC-EI-301",
+      "PC-EI-304",
+      "MC-ES-301",
+    ];
+  }
+  else if (a == "EI" && b == "4") {
+    arr2 = [
+      "Select Subject",
+      "BS-BIO-401",
+      "PC-EI-401",
+      "PC-EI-402",
+      "PC-EI-403",
+      "ES-CS-401",
+      "HM-HU-401"
+    ];
+  }
+  else if (a == "EI" && b == "5") {
+    arr2 = [
+      "Select Subject",
+      "PC-EI501",
+      "PC-EI502",
+      "PC-EI503",
+      "PE-EI501",
+      "PE-EI502",
+      "PE-EI503",
+      "PE-EI504",
+      "OE-EI501",
+      "OE-EI502",
+    ];
+  }
+  else if (a == "EI" && b == "6") {
+    arr2 = [
+      "Select Subject",
+      "PC-EI601",
+      "PC-EI602",
+      "OE-EI601",
+      "OE-EI602",
+      "OE-EI603",
+      "OE-EI604",
+      "HM-HU-601",
+      "MC-ES-601",
+    ];
+  }
+  else if (a == "EI" && b == "7") {
+    arr2 = [
+      "Select Subject",
+      "EI 701",
+      "EI 702",
+      "EI 703",
+      "EI 704A",
+      "EI 705A(CS)",
+      "EI 705E(IT)",
+    ];
+  }
+  else if (a == "EI" && b == "8") {
+    arr2 = [
+      "Select Subject",
+      "HU 801A",
+      "EC 801B",
+      "EC 803C",
+      "EC 802A",
+      "EC 802B",
+      "EC 802C",
+    ];
+  }
 
   var string2 = "";
 
