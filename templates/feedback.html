@@ -121,9 +121,9 @@
         <footer class="footer section bd-container">
             <div class="footer__container bd-grid">
                 <div class="footer__content">
-                    <a href="#" class="footer__logo darkmode">MyLibrary</a>
+                    <a href="{% url 'index' %}" class="footer__logo darkmode">MyLibrary</a>
                 </div>
-
+    
                 <div class="footer__content">
                     <h3 class="footer__title darkmode">Dashboard</h3>
                     <ul>
@@ -131,10 +131,9 @@
                         <li><a href="{% url 'syllabus' %}" class="footer__link">Syllabus</a></li>
                         <li><a href="{% url 'previousYear' %}" class="footer__link">Previous Year</a></li>
                         <li><a href="{% url 'resource' %}" class="footer__link">Resources</a></li>
-                        <li><a href="http://makautexam.net/" class="footer__link" target="_blank">Makaut</a></li>
+                        <li><a href="http://makautexam.net/" class="footer__link">Makaut</a></li>
                     </ul>
                 </div>
-
                 <div class="footer__content">
                     <h3 class="footer__title darkmode">Information</h3>
                     <ul>
@@ -147,8 +146,10 @@
                         <a href="https://www.linkedin.com/in/manpreet-kaur-1151a2194/" class="footer__social darkmode"><i class='bx bxl-linkedin'></i></a>
                     </ul>
                 </div>
+    
             </div>
         </footer>
+    
 
         <!------------------------------ Scroll Reveal------------------------------>
 

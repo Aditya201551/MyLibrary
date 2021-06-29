@@ -61,7 +61,7 @@
     body.dark-theme{
     --title-color: #F1F3F2;
     --text-color: #fff;
-    --body-color: #1D2521;
+    --body-color:  #0c1929;
     --container-color: #27302C;
   }
   
@@ -400,6 +400,7 @@ font-weight: 700;
 .about__desciption
 {
     margin-top: var(--mg-3);
+    text-align: center;
 }
 
 .about__img
