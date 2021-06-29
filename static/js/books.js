@@ -11,7 +11,7 @@ function random_function() {
   }
   var string = "";
 
-  for (i = 0; i < arr.length; i++) {
+  for (var i = 0; i < arr.length; i++) {
     string = string + "<option value=" + arr[i] + ">" + arr[i] + "</option>";
   }
   document.getElementById("output").innerHTML = string;
