@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="{% static "css/books.css" %}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 <link rel="icon" href="{% static "images/books.png" %}" type="image/png">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 <title>Syllabus</title>
 </head>
@@ -94,7 +95,7 @@
                 <article class="leaderboard__profile">
                     <span class="leaderboard__name">
                 {{model.course}}</span>
-                    <span class="leaderboard__name"> </span><span class="leaderboard__name"><a href="{{model.pdf.url}}" target="_blank">Download</a></span>
+                    <span class="leaderboard__name"> </span><span class="leaderboard__name"><a href="{{model.pdf.url}}" target="_blank"><i class="fas fa-arrow-circle-down"></i></a></span>
                 </article>
             </main>
         </article>
@@ -111,7 +112,7 @@
                 <article class="leaderboard__profile">
                     <span class="leaderboard__name">{{i.course}}</span>
                     <span class="leaderboard__name"> </span>
-                    <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank">Download</a></span>
+                    <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank"><i class="fas fa-arrow-circle-down"></i></a></span>
                 </article>
                 {% endfor %}
             </main>
@@ -147,8 +148,8 @@
             {% for i in model %}
             <article class="leaderboard__profile">
                 <span class="leaderboard__name">{{i.course}}</span>
-                <span class="leaderboard__name">Verified</span>
-                <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank">Download</a></span>
+                <span class="leaderboard__name"> </span>
+                <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank"><i class='bx bxs-down-arrow-square'></i></a></span>
             </article>
             {% endfor %}
         </main>

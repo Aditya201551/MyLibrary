@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="{% static "css/books.css" %}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 <link rel="icon" href="{% static "images/books.png" %}" type="image/png">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 <title>Books</title>
 </head>
 
@@ -101,7 +103,7 @@
                 <article class="leaderboard__profile">
                     <span class="leaderboard__name">{{i.semester}}</span>
                     <span class="leaderboard__name">{{i.subject}}</span>
-                    <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank">Download</a></span>
+                    <span class="leaderboard__name"><a href="{{i.pdf.url}}" target="_blank"><i class="fas fa-arrow-circle-down"></i></a></span>
                 </article>
                 {% endfor %}
             </main>
