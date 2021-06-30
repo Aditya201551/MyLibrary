@@ -94,16 +94,13 @@ WSGI_APPLICATION = 'MyLibrary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'ec2-35-170-85-206.compute-1.amazonaws.com',
-        'NAME': 'dnv6k2oov5v9s',
-        'USER': 'jugsbltzltjptq',
-        'PASSWORD': '7f23109d53c96caac534f85622dffc76e823706b2bd9adbe01f9a6bcf3f76f8a',
+        'HOST': '34.93.243.152',
+        'PORT': '5432',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
     }
-    #postgres://jugsbltzltjptq:7f23109d53c96caac534f85622dffc76e823706b2bd9adbe01f9a6bcf3f76f8a@ec2-35-170-85-206.compute-1.amazonaws.com:5432/dnv6k2oov5v9s
 }
-
-db_form_env=dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_form_env)
 
 
 # Password validation
