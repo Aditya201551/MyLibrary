@@ -37,7 +37,7 @@ function random_function_sem() {
       "BCAN-201",
       "BCAN-202",
       "BCAN-203",
-      "BMN-101",
+      "BMN-201",
       "HUN-201",
     ];
   } else if (a == "BCA" && b == "3") {
