@@ -153,9 +153,7 @@ def placementSite(request):
     return render(request, 'resources/placementSite.html')
 def placementYT(request):
     return render(request, 'resources/placementYT.html')
-login_required('form')
-def contact(request):
-    return HttpResponse("<h1form> Contact us</h1>")
+
 
 @login_required(login_url='form')
 def feedback(request):
@@ -172,8 +170,8 @@ def feedback(request):
     else:
         return render(request, 'feedback.html')
 
-def test(request):
-    model=TestModel.objects.all()
-    return render(request,'test.html', {
-        'model':model,
-    })
+# def test(request):
+#     model=TestModel.objects.all()
+#     return render(request,'test.html', {
+#         'model':model,
+#     })
