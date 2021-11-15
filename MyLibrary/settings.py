@@ -92,13 +92,17 @@ WSGI_APPLICATION = 'MyLibrary.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'HOST': '34.93.243.152',
+    #     'PORT': '5432',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'admin',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': '34.93.243.152',
-        'PORT': '5432',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -153,7 +157,7 @@ STATICFILES_DIRS = [
 ]
 from google.oauth2 import service_account
 GS_CREDENTIALS=service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR, 'my-library-315709-43843933fee1.json')
+    os.path.join(BASE_DIR, 'credentials.json')
 )
 
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
@@ -164,8 +168,8 @@ STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_FILE_STORAGE ='MyLibrary.gcloud.GoogleCloudMediaFileStorage'
-GS_PROJECT_ID = 'my-library-315709'
-GS_BUCKET_NAME = 'my-library-bucket'
+GS_PROJECT_ID = 'practice-project-330709'
+GS_BUCKET_NAME = 'storage-library'
 MEDIA_ROOT = "media/"
 UPLOAD_ROOT = 'media/uploads/'
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
