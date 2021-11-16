@@ -162,20 +162,6 @@ GS_CREDENTIALS=service_account.Credentials.from_service_account_file(
     os.path.join(BASE_DIR, 'credentials.json')
 )
 
-# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-
-# # Default primary key field type
-# # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# DEFAULT_FILE_STORAGE ='MyLibrary.gcloud.GoogleCloudMediaFileStorage'
-# GS_PROJECT_ID = 'practice-project-330709'
-# GS_BUCKET_NAME = 'storage-library'
-# MEDIA_ROOT = "media/"
-# UPLOAD_ROOT = 'media/uploads/'
-# MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
-
 AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = 'AKIAZTV43WKURPPHLRNR'
