@@ -23,10 +23,10 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-moj(-w9nj5a5mbckrm7m&doxczey4plo%$1+ov2lcf&q8hk=8u'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -157,16 +157,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-from google.oauth2 import service_account
-GS_CREDENTIALS=service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR, 'credentials.json')
-)
-
-AWS_QUERYSTRING_AUTH = False
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIAZTV43WKURPPHLRNR'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'storage-library'
+AWS_QUERYSTRING_AUTH = config('AWS_QUERYSTRING_AUTH', default=False, cast=bool)
+DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
