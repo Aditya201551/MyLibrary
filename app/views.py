@@ -24,19 +24,24 @@ def form(request):
                     login(request, user)
                     return redirect('index')
                 else:
-                    return render(request, 'form.html', {'error': 'Account not active contact admin'})
+                    return render(request, 'form.html', {'error': 'Account not active contact admin via feedback'})
             else:
                 return render(request, 'form.html', {'error': 'Invalid login credentials'})
         
         elif request.POST.get('submit')=='Sign up':
             username = request.POST['username']
             email = request.POST['email']
+            #* if email is not in proper format
+            if not isValidMail(email):
+                return render(request,'form.html',{'error':'Email not in proper format!'})
             password1 = request.POST['pass']
             password2 = request.POST['cpass']
 
             if password1 == password2:
+                #* if the username is already taken
                 if User.objects.filter(username=username).exists():
                     return render(request, 'form.html', {'error': 'Username already taken'})
+                #* if email already in use
                 elif User.objects.filter(email=email).exists():
                     return render(request, 'form.html', {'error': 'Email already taken'})
                 else:
@@ -175,3 +180,13 @@ def feedback(request):
 #     return render(request,'test.html', {
 #         'model':model,
 #     })
+
+#TODO: simple email validation added but to be improved
+def isValidMail(mail):
+    #test@test.com
+    try:
+        address,domain=mail.split('@')
+    except ValueError as err:
+        return False
+    else:
+        return True
